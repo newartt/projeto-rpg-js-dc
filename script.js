@@ -50,11 +50,11 @@ while (jogando) {
       "3 - Cavaleiro (ATQ 3 | DEF 3)"
     )
     if (escolha === "1") {
-      jogador = { ...bobo, vida: 17 }
+      jogador = { ...bobo, vida: 20 }
     } else if (escolha === "2") {
-      jogador = { ...anao, vida: 21 }
+      jogador = { ...anao, vida: 24 }
     } else if (escolha === "3") {
-      jogador = { ...cavaleiro, vida: 19 }
+      jogador = { ...cavaleiro, vida: 22 }
     } else {
       alert("Opção inválida! Digite 1, 2 ou 3.")
     }
