@@ -1,6 +1,6 @@
-const bobo = { nome: "Bobo da corte", ATQ: 4, DEF: 2 }
-const anao = { nome: "Anão", ATQ: 2, DEF: 4 }
-const cavaleiro = { nome: "Cavaleiro", ATQ: 3, DEF: 3 }
+const bobo = { nome: "Bobo da corte", ATQ: 5, DEF: 3 }
+const anao = { nome: "Anão", ATQ: 3, DEF: 5 }
+const cavaleiro = { nome: "Cavaleiro", ATQ: 4, DEF: 4 }
 
 function lutar(jogador, inimigo) {
   alert(`${inimigo.nome} apareceu na sua frente!\nVida: ${inimigo.vida} | ATQ: ${inimigo.ATQ}`)
@@ -11,12 +11,14 @@ function lutar(jogador, inimigo) {
     let tentativas = 3
 
     while (tentativas > 0 && !acertou) {
-      const palpite = Number(prompt(`Você prepara o ataque! Adivinhe o número do dado (1 a 6).\nTentativas restantes: ${tentativas}`))
-      if (palpite === sorteado) {
-        acertou = true
-      } else {
+        const palpite = Number(prompt(`Você prepara o ataque! Adivinhe o número do dado (1 a 6).\nTentativas restantes: ${tentativas}`))
+        if (!Number.isInteger(palpite) || palpite < 1 || palpite > 6) {
+            alert("Número inválido! Digite um número inteiro de 1 a 6.")
+        } else if (palpite === sorteado) {
+            acertou = true
+        } else {
         tentativas--
-      }
+        }
     }
 
     let dano = jogador.ATQ
@@ -50,11 +52,11 @@ while (jogando) {
       "3 - Cavaleiro (ATQ 3 | DEF 3)"
     )
     if (escolha === "1") {
-      jogador = { ...bobo, vida: 20 }
+      jogador = { ...bobo, vida: 25 }
     } else if (escolha === "2") {
-      jogador = { ...anao, vida: 24 }
+      jogador = { ...anao, vida: 29 }
     } else if (escolha === "3") {
-      jogador = { ...cavaleiro, vida: 22 }
+      jogador = { ...cavaleiro, vida: 27 }
     } else {
       alert("Opção inválida! Digite 1, 2 ou 3.")
     }
@@ -74,16 +76,16 @@ while (jogando) {
   if (caminho === "1") {
     alert("Você respira fundo e entra na floresta. As árvores bloqueiam a luz do sol.")
     inimigos = [
-      { nome: "Cobra pequena", vida: 8, ATQ: 4 },
-      { nome: "Cobra venenosa", vida: 14, ATQ: 5 },
-      { nome: "Cobra gigante", vida: 20, ATQ: 7 }
+      { nome: "Cobra pequena", vida: 10, ATQ: 3 },
+      { nome: "Cobra venenosa", vida: 16, ATQ: 5 },
+      { nome: "Cobra gigante", vida: 26, ATQ: 7 }
     ]
   } else {
     alert("Você acende uma tocha e entra na caverna. O ar é frio e úmido.")
     inimigos = [
-      { nome: "Lobo cinza", vida: 9, ATQ: 4 },
-      { nome: "Lobo vermelho", vida: 16, ATQ: 5 },
-      { nome: "Lobisomen", vida: 23, ATQ: 7 }
+      { nome: "Lobo cinza", vida: 11, ATQ: 3 },
+      { nome: "Lobo vermelho", vida: 17, ATQ: 5 },
+      { nome: "Lobisomen", vida: 28, ATQ: 7 }
     ]
   }
 
